@@ -1,0 +1,8 @@
+snapshots:
+  - name: aboba_processing_dds
+    relation: "ref('aboba_processing')"
+    config:
+      strategy: timestamp
+      updated_at: updated_at
+      unique_key: _id
+      dbt_valid_to_current: "'5999-12-31 23:59:59'::timestamp"
