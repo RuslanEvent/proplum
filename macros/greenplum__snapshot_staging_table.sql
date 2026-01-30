@@ -1,16 +1,3 @@
-{% macro proplum_get_load_info_table_name() %}
-    {%- set schema_name = var('metadata_schema', target.schema) -%}
-
-    {{ return('"' ~ target.dbname ~ '"."' ~ schema_name ~ '"."dbt_load_info"') }}
-{% endmacro %}
-
-
-{# Fix for greenplum snapshot: delegate to postgres instead of recursive call #}
-{% macro greenplum__snapshot_merge_sql(target, source, insert_cols) -%}
-    {{ return(postgres__snapshot_merge_sql(target, source, insert_cols)) }}
-{% endmacro %}
-
-
 {# Fix for greenplum snapshot: explicit text casting for dbt_change_type #}
 {% macro greenplum__snapshot_staging_table(strategy, source_sql, target_relation) -%}
     {% set columns = config.get('snapshot_table_column_names') or get_snapshot_table_column_names() %}
