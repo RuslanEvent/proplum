@@ -7,7 +7,8 @@ version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'proplum_test'
-
+vars:
+  metadata_schema: "dbt_meta_ruslan"
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
@@ -33,7 +34,9 @@ models:
   proplum_test:
     # Config indicated by + and applies to all files under models/example/
     staging:
-      +materialized: view
+      +compresstype: ZSTD
+      +compresslevel: 1
+      +appendoptimized: true
     
     intermediate:
       +compresstype: ZSTD
