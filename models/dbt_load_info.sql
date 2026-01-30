@@ -5,7 +5,7 @@
     orientation = 'column',
     compresstype = 'zstd',
     compresslevel = '1',
-    schema = 'dbt_meta_ruslan'
+    schema = 'schema_name'
 ) }}
 
     SELECT
