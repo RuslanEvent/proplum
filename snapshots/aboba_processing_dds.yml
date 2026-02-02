@@ -2,7 +2,11 @@ snapshots:
   - name: aboba_processing_dds
     relation: "ref('aboba_processing')"
     config:
+      schema: dbt_ods_ruslan
       strategy: timestamp
       updated_at: updated_at
       unique_key: _id
       dbt_valid_to_current: "'5999-12-31 23:59:59'::timestamp"
+      snapshot_meta_column_names:
+        dbt_valid_from: valid_from_dttm
+        dbt_valid_to: valid_to_dttm
