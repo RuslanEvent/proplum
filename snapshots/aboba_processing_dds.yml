@@ -6,7 +6,9 @@ snapshots:
       strategy: timestamp
       updated_at: updated_at
       unique_key: _id
+      hard_deletes: new_record
       dbt_valid_to_current: "'5999-12-31 23:59:59'::timestamp"
       snapshot_meta_column_names:
         dbt_valid_from: valid_from_dttm
         dbt_valid_to: valid_to_dttm
+        dbt_is_deleted: dwh_deleted_flg
